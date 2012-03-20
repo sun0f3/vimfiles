@@ -37,7 +37,7 @@ function ClearTrailSpace()
   %substitute/\s\+$//g
 endfunction
 
-autocmd BufWritePre *.{rb,yml,haml,scss,sass,erb, js} :%s/\s\+$//e
+autocmd BufWritePre *.{rb,yml,haml,scss,sass,erb,js} :%s/\s\+$//e
 
 "ignore tmp files
 set wildignore+=*.cache,*.log,*.pid,*.swp,*.sassc,*.png,*.jpg
