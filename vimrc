@@ -1,21 +1,78 @@
+"BUNDLER
+set nocompatible
+filetype off
+set rtp+=~/.vim/bundle/vundle/
+
+call vundle#rc()
+
+filetype plugin indent on
+
+Bundle 'gmarik/vundle.git'
+"MUST HAVE
+Bundle 'vim-scripts/ag.vim.git'
+Bundle 'kien/ctrlp.vim.git'
+Bundle 'tpope/vim-fugitive.git'
+
+"matchit toggle % do end blocks
+Bundle 'matchit.zip' 
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rvm'
+Bundle 'akitaonrails/snipmate-snippets.git'
+Bundle 'akitaonrails/snipmate-snippets.git'
+Bundle 'tpope/vim-rails.git'
+Bundle 'tpope/vim-cucumber.git'
+Bundle 'tpope/vim-haml.git'
+Bundle 'tpope/vim-surround.git'
+Bundle 'tpope/vim-git.git'
+Bundle 'scrooloose/nerdtree.git'
+Bundle 'scrooloose/nerdcommenter.git'
+Bundle 'tpope/vim-ragtag.git'
+Bundle 'tpope/vim-markdown.git'
+Bundle 'tpope/vim-endwise.git'
+Bundle 'akitaonrails/snipmate.vim.git'
+Bundle 'scrooloose/syntastic.git'
+Bundle 'timcharper/textile.vim.git'
+Bundle 'tpope/vim-unimpaired.git'
+Bundle 'ervandew/supertab.git'
+Bundle 'ciaranm/securemodelines.git'
+Bundle 'kana/vim-textobj-user.git'
+Bundle 'nelstrom/vim-textobj-rubyblock.git'
+Bundle 'greyblake/vim-preview.git'
+Bundle 'tpope/vim-abolish.git'
+Bundle 'digitaltoad/vim-jade.git'
+Bundle 'walm/jshint.vim.git'
+
+"LANGUAGES
+Bundle 'vim-scripts/vim-coffee-script'
+Bundle 'vim-ruby/vim-ruby.git'
+Bundle 'vim-scripts/VimClojure.git'
+
+"COLORS
+Bundle 'molokai'
 "========== MY =============
 "NERDTREE RIGHT
 let NERDTreeWinPos="right"
-set number
+let NERDTreeShowBookmarks=1
+autocmd VimEnter * NERDTree
+let g:ctrlp_match_window_bottom = 0
 
 "DISABLE BACKUP
 set nobackup
 set nowritebackup
 set noswapfile
-
-
+set number
+set nowrap
+ 
 "RUSSIAN AND ENGLISH KEYBOARD
 set langmap=йцукенгшщзхъфывапролджэячсмитьбю/ЙЦУКЕHГШЩЗХЪФЫВАПРОЛДЖЭЯЧСМИТЬБЮ/;qwertyuiop[]asdfghjkl;'zxcvbnm,./QWERTYUIOP[]ASDFGHJKL:'ZXCVBNM,./
 
-nmap ,c<space> NERDComToggleComment<CR>
+nmap ,c<space> :NERDComToggleComment<CR>
+nmap <leader>r :NERDTreeFind<CR>
 
 let g:PreviewBrowsers='chrome,safari,firefox'
 
+"CONGIF GREP"
+let Grep_Skip_Files="*~ *.git/* *log/* *.sass-cache/*"
 
 command!  ToggleTrailSpace call ToggleTrailSpace()
 function ToggleTrailSpace()
@@ -40,27 +97,22 @@ endfunction
 autocmd BufWritePre *.{rb,yml,haml,scss,sass,erb,js} :%s/\s\+$//e
 
 "ignore tmp files
-set wildignore+=*.cache,*.log,*.pid,*.swp,*.sassc,*.png,*.jpg
+set wildignore+=*.cache,*.log,*.pid,*.swp,*.sassc,*.png,*.jpg,*.sassc,*.scssc
 
 "<CTRL+b> CTrlP by Buffers
 nmap <c-b> :CtrlPBuffer<CR>
+nmap <c-t> :CtrlP<CR>
 
-let g:ctrlp_custom_ignore = '\.git$\|tmp$\|public'
+let g:ctrlp_custom_ignore = '\.git$\|tmp$\|public|\.sass-cache|tags'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
 """"""""""""""""""
 
-"necessary on some Linux distros for pathogen to properly load bundles
-filetype off
 
-"load pathogen managed plugins
-call pathogen#runtime_append_all_bundles()
 
 "Use Vim settings, rather then Vi settings (much better!).
 "This must be first, because it changes other options as a side effect.
-set nocompatible
-
 "allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -75,7 +127,7 @@ set hlsearch    "hilight searches by default
 
 set number      "add line numbers
 set showbreak=...
-set wrap linebreak nolist
+set nowrap linebreak nolist
 
 "mapping for command key to map navigation thru display lines instead
 "of just numbered lines
@@ -105,10 +157,10 @@ set fo=l
 set statusline=%f       "tail of the filename
 
 "Git
-set statusline+=[%{GitBranch()}]
+"set statusline+=[%{GitBranch()}]
 
 "RVM
-set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
+"set statusline+=%{exists('g:loaded_rvm')?rvm#statusline():''}
 
 "display a warning if fileformat isnt unix
 "set statusline+=%#warningmsg#
@@ -303,15 +355,12 @@ set ttymouse=xterm2
 "hide buffers when not displayed
 set hidden
 
-"Command-T configuration
-let g:CommandTMaxHeight=10
-let g:CommandTMatchWindowAtTop=1
-
 if has("gui_running")
     "tell the term has 256 colors
     set t_Co=256
 
-    colorscheme railscasts
+    "colorscheme railscasts
+    colorscheme molokai
     set guitablabel=%M%t
     set lines=40
     set columns=115
@@ -319,11 +368,12 @@ if has("gui_running")
     if has("gui_gnome")
         set term=gnome-256color
         colorscheme railscasts
-        set guifont=Monospace\ Bold\ 12
+        set guifont=Monospace\ Bold\ 14
     endif
 
     if has("gui_mac") || has("gui_macvim")
-        set guifont=Menlo:h14
+        set guifont=Menlo:h16
+        "set guifont=Monaco:h16
         " key binding for Command-T to behave properly
         " uncomment to replace the Mac Command-T key to Command-T plugin
         "macmenu &File.New\ Tab key=<nop>
@@ -389,26 +439,6 @@ map <A-q> :cclose<CR>
 map <A-j> :cnext<CR>
 map <A-k> :cprevious<CR>
 
-"snipmate setup
-try
-  source ~/.vim/snippets/support_functions.vim
-catch
-  source ~/vimfiles/snippets/support_functions.vim
-endtry
-autocmd vimenter * call s:SetupSnippets()
-function! s:SetupSnippets()
-
-    "if we're in a rails env then read in the rails snippets
-    if filereadable("./config/environment.rb")
-        call ExtractSnips("~/.vim/snippets/ruby-rails", "ruby")
-        call ExtractSnips("~/.vim/snippets/eruby-rails", "eruby")
-    endif
-
-    call ExtractSnips("~/.vim/snippets/html", "eruby")
-    call ExtractSnips("~/.vim/snippets/html", "xhtml")
-    call ExtractSnips("~/.vim/snippets/html", "php")
-endfunction
-
 "visual search mappings
 function! s:VSetSearch()
     let temp = @@
@@ -463,6 +493,7 @@ nmap <D-]> >>
 vmap <D-[> <gv
 vmap <D-]> >gv
 
-
 let ScreenShot = {'Icon':0, 'Credits':0, 'force_background':'#FFFFFF'}
 
+set tags=./.tags;/
+autocmd BufNewFile,BufRead *.coffee set filetype=coffee
