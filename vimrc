@@ -1,54 +1,63 @@
 "BUNDLER
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/bundle/Vundle.vim
 
-call vundle#rc()
+call vundle#begin()
 
-filetype plugin indent on
-
-Bundle 'gmarik/vundle.git'
+Plugin 'VundleVim/Vundle.vim'
 "MUST HAVE
-Bundle 'vim-scripts/ag.vim.git'
-Bundle 'kien/ctrlp.vim.git'
-Bundle 'tpope/vim-fugitive.git'
+Plugin 'vim-scripts/ag.vim'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'pangloss/vim-javascript'
+Plugin 'mxw/vim-jsx'
+Plugin 'ianks/vim-tsx'
 
 "matchit toggle % do end blocks
-Bundle 'matchit.zip' 
-Bundle 'tpope/vim-bundler'
-Bundle 'tpope/vim-rvm'
-Bundle 'akitaonrails/snipmate-snippets.git'
-Bundle 'akitaonrails/snipmate-snippets.git'
-Bundle 'tpope/vim-rails.git'
-Bundle 'tpope/vim-cucumber.git'
-Bundle 'tpope/vim-haml.git'
-Bundle 'tpope/vim-surround.git'
-Bundle 'tpope/vim-git.git'
-Bundle 'scrooloose/nerdtree.git'
-Bundle 'scrooloose/nerdcommenter.git'
-Bundle 'tpope/vim-ragtag.git'
-Bundle 'tpope/vim-markdown.git'
-Bundle 'tpope/vim-endwise.git'
-Bundle 'akitaonrails/snipmate.vim.git'
-Bundle 'scrooloose/syntastic.git'
-Bundle 'timcharper/textile.vim.git'
-Bundle 'tpope/vim-unimpaired.git'
-Bundle 'ervandew/supertab.git'
-Bundle 'ciaranm/securemodelines.git'
-Bundle 'kana/vim-textobj-user.git'
-Bundle 'nelstrom/vim-textobj-rubyblock.git'
-Bundle 'greyblake/vim-preview.git'
-Bundle 'tpope/vim-abolish.git'
-Bundle 'digitaltoad/vim-jade.git'
-Bundle 'walm/jshint.vim.git'
+Plugin 'matchit.zip' 
+Plugin 'tpope/vim-bundler'
+Plugin 'tpope/vim-rvm'
+Plugin 'tpope/vim-rails.git'
+Plugin 'tpope/vim-cucumber.git'
+Plugin 'tpope/vim-haml.git'
+Plugin 'tpope/vim-surround.git'
+Plugin 'tpope/vim-git.git'
+Plugin 'scrooloose/nerdtree.git'
+Plugin 'slim-template/vim-slim.git'
+Plugin 'scrooloose/nerdcommenter.git'
+Plugin 'tpope/vim-ragtag.git'
+Plugin 'tpope/vim-markdown.git'
+Plugin 'tpope/vim-endwise.git'
+Plugin 'akitaonrails/snipmate.vim.git'
+Plugin 'scrooloose/syntastic.git'
+Plugin 'timcharper/textile.vim.git'
+Plugin 'tpope/vim-unimpaired.git'
+Plugin 'reasonml-editor/vim-reason-plus'
+Plugin 'ervandew/supertab.git'
+Plugin 'ciaranm/securemodelines.git'
+Plugin 'kana/vim-textobj-user.git'
+Plugin 'nelstrom/vim-textobj-rubyblock.git'
+Plugin 'greyblake/vim-preview.git'
+Plugin 'tpope/vim-abolish.git'
+Plugin 'digitaltoad/vim-jade.git'
+Plugin 'walm/jshint.vim.git'
 
 "LANGUAGES
-Bundle 'vim-scripts/vim-coffee-script'
-Bundle 'vim-ruby/vim-ruby.git'
-Bundle 'vim-scripts/VimClojure.git'
+Plugin 'leafgarland/typescript-vim.git'
+Plugin 'vim-ruby/vim-ruby.git'
+Plugin 'vim-scripts/VimClojure.git'
+
 
 "COLORS
-Bundle 'molokai'
+Plugin 'molokai'
+
+call vundle#end()            " required
+syntax enable
+filetype plugin indent on    " required
+
+
+
 "========== MY =============
 "NERDTREE RIGHT
 let NERDTreeWinPos="right"
@@ -103,10 +112,15 @@ set wildignore+=*.cache,*.log,*.pid,*.swp,*.sassc,*.png,*.jpg,*.sassc,*.scssc
 nmap <c-b> :CtrlPBuffer<CR>
 nmap <c-t> :CtrlP<CR>
 
-let g:ctrlp_custom_ignore = '\.git$\|tmp$\|public|\.sass-cache|tags'
+"let g:ctrlp_custom_ignore = '\.git$\|tmp$\|public|\.sass-cache|tags|\.node_modules$\'
 let g:ctrlp_working_path_mode = 0
 let g:ctrlp_use_caching = 1
 let g:ctrlp_clear_cache_on_exit = 0
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/]\.(git|hg|svn)$|\v[\/]node_modules$',
+	\ 'file': '\v\.(exe|so|dll)$',
+	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+	\ }
 """"""""""""""""""
 
 
