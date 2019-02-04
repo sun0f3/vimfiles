@@ -1,60 +1,61 @@
-"BUNDLER
-set nocompatible
-filetype off
-set rtp+=~/.vim/bundle/Vundle.vim
-
-call vundle#begin()
-
-Plugin 'VundleVim/Vundle.vim'
+"call plug#begin('~/.vim/plugged')
+call plug#begin()
+Plug 'VundleVim/Vundle.vim'
 "MUST HAVE
-Plugin 'vim-scripts/ag.vim'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'ianks/vim-tsx'
+Plug 'vim-scripts/ag.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-fugitive'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'ianks/vim-tsx'
 
 "matchit toggle % do end blocks
-Plugin 'matchit.zip' 
-Plugin 'tpope/vim-bundler'
-Plugin 'tpope/vim-rvm'
-Plugin 'tpope/vim-rails.git'
-Plugin 'tpope/vim-cucumber.git'
-Plugin 'tpope/vim-haml.git'
-Plugin 'tpope/vim-surround.git'
-Plugin 'tpope/vim-git.git'
-Plugin 'scrooloose/nerdtree.git'
-Plugin 'slim-template/vim-slim.git'
-Plugin 'scrooloose/nerdcommenter.git'
-Plugin 'tpope/vim-ragtag.git'
-Plugin 'tpope/vim-markdown.git'
-Plugin 'tpope/vim-endwise.git'
-Plugin 'akitaonrails/snipmate.vim.git'
-Plugin 'scrooloose/syntastic.git'
-Plugin 'timcharper/textile.vim.git'
-Plugin 'tpope/vim-unimpaired.git'
-Plugin 'reasonml-editor/vim-reason-plus'
-Plugin 'ervandew/supertab.git'
-Plugin 'ciaranm/securemodelines.git'
-Plugin 'kana/vim-textobj-user.git'
-Plugin 'nelstrom/vim-textobj-rubyblock.git'
-Plugin 'greyblake/vim-preview.git'
-Plugin 'tpope/vim-abolish.git'
-Plugin 'digitaltoad/vim-jade.git'
-Plugin 'walm/jshint.vim.git'
+Plug 'adelarsq/vim-matchit' 
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-rvm'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-cucumber'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-git'
+Plug 'scrooloose/nerdtree'
+Plug 'slim-template/vim-slim'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-endwise'
+Plug 'akitaonrails/snipmate.vim'
+Plug 'scrooloose/syntastic'
+Plug 'timcharper/textile.vim'
+Plug 'tpope/vim-unimpaired'
+Plug 'reasonml-editor/vim-reason-plus'
+Plug 'ervandew/supertab'
+Plug 'ciaranm/securemodelines'
+Plug 'kana/vim-textobj-user'
+Plug 'nelstrom/vim-textobj-rubyblock'
+Plug 'greyblake/vim-preview'
+Plug 'tpope/vim-abolish'
+Plug 'digitaltoad/vim-jade'
+Plug 'walm/jshint.vim'
 
 "LANGUAGES
-Plugin 'leafgarland/typescript-vim.git'
-Plugin 'vim-ruby/vim-ruby.git'
-Plugin 'vim-scripts/VimClojure.git'
+Plug 'leafgarland/typescript-vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'vim-scripts/VimClojure'
 
 
 "COLORS
-Plugin 'molokai'
+Plug 'tomasr/molokai'
 
-call vundle#end()            " required
-syntax enable
-filetype plugin indent on    " required
+call plug#end()            " required
+"BUNDLER
+"set nocompatible
+"filetype off
+"set rtp+=~/.vim/bundle/Vundle.vim
+
+
+"syntax enable
+"filetype plugin indent on    " required
 
 
 
