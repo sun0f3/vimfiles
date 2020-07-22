@@ -42,6 +42,10 @@ Plug 'walm/jshint.vim'
 Plug 'leafgarland/typescript-vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'vim-scripts/VimClojure'
+Plug 'elixir-editors/vim-elixir'
+Plug 'vim-erlang/vim-erlang-runtime'
+Plug 'dart-lang/dart-vim-plugin'
+"Plug 'thosakwe/vim-flutter'
 
 
 "COLORS
