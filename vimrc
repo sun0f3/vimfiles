@@ -51,6 +51,8 @@ Plug 'dart-lang/dart-vim-plugin'
 "COLORS
 Plug 'tomasr/molokai'
 
+Plug 'vimwiki/vimwiki'
+
 call plug#end()            " required
 "BUNDLER
 "set nocompatible
@@ -82,6 +84,7 @@ set langmap=йцукенгшщзхъфывапролджэячсмитьбю/Й�
 
 nmap ,c<space> :NERDComToggleComment<CR>
 nmap <leader>r :NERDTreeFind<CR>
+
 
 let g:PreviewBrowsers='chrome,safari,firefox'
 
@@ -515,4 +518,12 @@ vmap <D-]> >gv
 let ScreenShot = {'Icon':0, 'Credits':0, 'force_background':'#FFFFFF'}
 
 set tags=./.tags;/
+
+function TrimEndLines()
+  let save_cursor = getpos(".")
+  silent! %s#\($\n\s*\)\+\%$##
+  call setpos('.', save_cursor)
+endfunction
+
+autocmd BufWritePre *.* call TrimEndLines()
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
